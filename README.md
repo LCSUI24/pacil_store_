@@ -15,6 +15,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+***Tugas Individu 7***
 **Pertanyaan Satu**
 Widget tree adalah cara Flutter menyusun tampilan pada aplikasi dengan widget utama (parent) yang punya anak-anak widget (child\children). Setiap widget anak diatur oleh parent mereka.
 
@@ -41,3 +42,21 @@ BuildContext memungkinkan widget untuk menemukan dan mengakses karakteristik ind
 Hot Reload: tidak perlu build ulang seluruh kode, hanya build kode yang diubah
 
 Hot Restart: Build ulang seluruh kode
+
+***Tugas Individu 8***
+
+**Pertanyaan satu**
+Navigator.push(): push halaman diatas halaman lain sehingga memebentuk stack, jadi pengguna dapat kembali ke halaman sebelunya
+Navigator.pushReplacement(): mengganti halaman lain (replace) dengan yang baru, jadi tidak bisa kembali ke halaman sebelumnya
+
+**Pertanyaan Dua**
+Scaffold berfungsi sebagai kerangka struktur dari aplikasinya yang berisi AppBarr, Body, dan lainnya, AppBar berfungsi sebagai seperti header yang biasanya menampilkan title, backgroumd color dan lain lain, Drawer berfungsi sebagai menu navigasi, dalam aplikasi berikut menggunakan LeftDrawer yang berada disebelah kiri
+
+**Pertanyaan Tiga**
+Padding berfungsi untuk mengatur jarak antar elemen
+SingleChildScrollView berfungsi untuk memastikan user dapat mengakses semua field di form jika isi dari form tersebut melebihi size dari display
+ListView berfungsi untuk menunjukkan list dari child widgets 
+Layout Widget yang digunakan pada proyek ini terletak pada file productlist_form.dart untuk menampilkan semua form field pada page tersebut dan menjadi lebih responsif
+
+**Pertanyaan Empat**
+dengan mendefinisikan tema utama di MaterialApp
