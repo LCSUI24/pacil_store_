@@ -60,3 +60,30 @@ Layout Widget yang digunakan pada proyek ini terletak pada file productlist_form
 
 **Pertanyaan Empat**
 dengan mendefinisikan tema utama di MaterialApp
+
+***Tugas Individu 8***
+
+**Pertanyaan satu**
+Model dart diperlukan untuk menjamin type safety yang memastikan masing-masing tipe data dan null safety yang menentukan variabel mana saja yang bisa null. Jika kita ingin mengubah kode keita (refactor) kita juga harus melakukannya secara manual dan itu sangat bisa menyebabkan kesalahan dan hal tersebut dapat dipermudah dengan menggunakan model dart
+
+**Pertanyaan dua**
+http berfungsi untuk melakukan permintaan HTTP standar yang bersifat stateless, sehingga tidak akan menyimpan informasi sesi antar request
+
+CookieRequest adalah wrapper khusus untuk menyimpan dan mengelola cookies (sessionid) secara otomatis
+
+Perbedaannya adalah http akan melupakan status login pengguna setelah request selesai, sedangkan CookieRequest akan mengingat status tersebut agar pengguna tetap terdeteksi login di request berikutnya.
+
+**Pertanyaan tiga**
+Instance CookieRequest menyimpan data sesi login (cookie) untuk pengguna yang sedang aktif. Jika kita membuat instance baru di setiap halaman, data sesi tersebut akan hilang (kosong) dan server akan menganggap pengguna belum login.
+
+**Pertanyaan empat**
+Alamat 10.0.2.2 diperlukan karena emulator Android menganggap localhost sebagai dirinya sendiri, sehingga IP ini digunakan untuk merujuk ke komputer host tempat Django berjalan. CORS dan ALLOWED_HOSTS diaktifkan agar Django tidak memblokir permintaan dari domain/IP asing, sementara izin internet di Android Manifest memberikan hak legal bagi aplikasi untuk mengakses jaringan. Tanpa konfigurasi ini, komunikasi akan gagal total dengan pesan error seperti Connection Refused atau 403 Forbidden.
+
+**Pertanyaan lima**
+Pertama data diinput user di Flutter lalu dikonversi menjadi format JSON dan dikirimkan ke Django melalui metode POST. Django akan memvalidasi data tersebut dan menyimpan data tersebut ke dalam database. Kemudian, Flutter melakukan permintaan (GET) untuk mengambil data terbaru, menerima respon JSON, mengonversinya menjadi objek Model Dart, dan menampilkannya ke layar menggunakan widget seperti FutureBuilder atau ListView.
+
+**Pertanyaan enam**
+Saat login, Flutter akan mengirim credential ke Django kemudian akan diverifikasi dan membuat sesi di server serta mengirimkan session cookie kembali ke Flutter. CookieRequest akan menangkap dan menyimpan cookie tersebut di memori lokal aplikasi sebagai tanda bukti autentikasi. Saat logout, aplikasi meminta server menghapus sesi dan secara lokal membuang cookie tersebut, sehingga akses pengguna kembali tertutup.
+
+**Pertanyaan tujuh**
+Buat app authentication. Di dalamnya, buat fungsi login, register, dan logout. Install django-cors-headers. Di settings.py, tambahkan ke INSTALLED_APPS dan MIDDLEWARE agar Django mengizinkan request dari Flutter. Atur CORS_ALLOW_ALL_ORIGINS = True dan tambahkan 10.0.2.2 ke ALLOWED_HOSTS. Tambahkan package provider dan pbp_django_auth (untuk menangani cookie & request) di pubspec yaml. Di main.dart, bungkus widget utama (MaterialApp) dengan Provider. Buat form input. Saat tombol ditekan, panggil request.login. Gunakan Navigator.pushReplacement untuk masuk ke menu utama (agar user tidak bisa kembali ke login dengan tombol back). Mirip login, tapi panggil request.post. Jika sukses, arahkan user kembali ke halaman login atau beri notifikasi SnackBar. Tambahkan tombol logout. menambah filter di bagian yang menampilkan produk list dan my product

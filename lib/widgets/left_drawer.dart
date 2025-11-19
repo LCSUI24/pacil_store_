@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pacil_store/screens/menu.dart';
 import 'package:pacil_store/screens/productlist_form.dart';
+import 'package:pacil_store/screens/product_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -66,6 +67,17 @@ class LeftDrawer extends StatelessWidget {
                     builder: (context) => ProductFormPage(),
                   ));
             },
+          ),
+          ListTile(
+              leading: const Icon(Icons.add_reaction_rounded),
+              title: const Text('Product List'),
+              onTap: () {
+                  // Route to product list page
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ProductEntryListPage(filterType: 'all',)),
+                  );
+              },
           ),
         ],
       ),
